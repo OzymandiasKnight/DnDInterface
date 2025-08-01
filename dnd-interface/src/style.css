@@ -1,0 +1,304 @@
+:root {
+  --primary: #e0f2f1;
+  --primary-v: #80cbc4;
+  --secondary: #e0e1f2;
+  --secondary-v: #8185bb;
+  
+  --background: #FFF;
+  --surface: #f0f0f0;
+  --error: #ce524c;
+  --txt-p: #fff;
+  --txt-s: #000;
+  --txt-bg: #000;
+  --txt-sf: #000;
+  --txt-err: #000;
+  --space-dis: 6px;
+  --space-rel: 4px;
+
+  --shadow-l: #0000001F 0px 2px 4px 4px;
+  --shadow-m: #0000001F 0px 4px 6px 0px;
+
+}
+
+::selection {
+  background-color: var(--primary-v);
+}
+
+html {
+  background-color: var(--background);
+
+}
+body {
+  position: sticky;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+#app > .background {
+  top:0;
+  z-index: -999;
+  filter: opacity(0.1);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-image: 
+    linear-gradient(
+    0deg, var(--surface) 0%, transparent 5%, transparent 95%, var(--surface) 100%
+    ),
+    linear-gradient(
+    90deg, var(--surface) 0%, transparent 5%, transparent 95%, var(--surface) 100%
+    );
+  background-blend-mode: difference;
+  background-size: 50px 50px;
+}
+
+html h1,button,h2, label, input, text {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 120%;
+  letter-spacing: -1px;
+}
+
+h1 {
+  font-size: 48px;
+  margin: 8px;
+}
+
+h2 {
+  font-size: 32px;
+  margin: 8px;
+}
+
+.centerer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  width: fit-content;
+  height: fit-content;
+}
+
+.button button {
+  color: var(--txt-p);
+  border: none;
+  outline: none;
+  background-color: var(--primary-v);
+  padding: var(--space-dis);
+  border-radius: 12px;
+  box-shadow: var(--shadow-l);
+}
+
+.button button:hover {
+  outline: var(--secondary-v) solid 2px;
+}
+
+div.surface {
+  background-color: var(--surface);
+  box-shadow: var(--shadow-m);
+  width: fit-content;
+  height: fit-content;
+  padding: 24px;
+  margin: var(--space-dis);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.textinput {
+  margin: var(--space-dis);
+  background-color: var(--primary);
+  border: var(--primary-v) solid 2px;
+  border-radius: 12px;
+}
+
+.textinput input {
+  margin: var(--space-dis);
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.spinbox {
+  margin: var(--space-dis);
+  background-color: var(--primary);
+  border: var(--primary-v) solid 2px;
+  border-radius: 12px;
+}
+
+.spinbox input[type="number"] {
+  margin: var(--space-dis);
+  background-color: transparent;
+  border: none;
+  -moz-appearance: textfield;
+}
+
+.spinbox input::-webkit-outer-spin-button,
+.spinbox input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.spinbox label {
+  margin-left: var(--space-dis);
+}
+
+.spinbox input:focus {
+  outline: none;
+}
+
+.grid {
+  width: fit-content;
+  height: fit-content;
+}
+
+.grid > .panel {
+  position: relative;
+  width: 100%;
+  display: inline-block;
+  background-color: var(--primary);
+  outline: var(--primary-v) solid 2px;
+  outline-offset: -2px;
+}
+
+.grid > .panel > .element {
+  padding: 0;
+  margin: var(--space-dis);
+  background-color: var(--primary-v);
+  border-radius: 6px;
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+}
+
+.grid > .panel.static-info > .element {
+  background-color: var(--secondary-v);
+}
+
+.grid > div > .textinput {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.element > .delete {
+  border-radius: inherit;
+}
+
+.element > .delete > .button {
+  position: relative;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.element > .delete > .button > button {
+  background-color: var(--error);
+  padding: 0px;
+  position: relative;
+  height: 100%;
+  padding: 8px;
+  border-radius: inherit;
+}
+
+.element > label {
+  padding: var(--space-dis);
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-dis);
+}
+
+.column-separator {
+  position: relative;
+  width: var(--space-rel);
+  border-radius: 2px;
+  top:0px;
+  bottom: 100%;
+  background-color: var(--secondary-v);
+  margin: var(--space-dis);
+}
+
+.row {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: fit-content;;
+  align-items: stretch;
+  min-height: 0;
+  height: fit-content;
+}
+
+
+.row-separator {
+  position: relative;
+  height: var(--space-rel);
+  border-radius: 2px;
+  left: 0%;
+  right: 100%;
+  width: 100%;
+  background-color: var(--secondary-v);
+  margin: var(--space-dis);
+}
+
+.static-info {
+  background-color: var(--secondary);
+  border-radius: var(--space-dis);
+}
+
+.panel.static-info {
+  background-color: var(--secondary);
+  outline: solid 2px var(--secondary-v);
+}
+
+.static-info > label {
+  margin: var(--space-dis);
+}
+
+.slide-selection {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-bullet {
+  width: 16px;
+  height: 16px;
+  margin: var(--space-rel);
+  border-radius: 50%;
+  background-color: var(--primary);
+  border: solid 2px var(--primary-v);
+}
+
+.slide-bullet.selected {
+  background-color: var(--primary-v);
+}
+
+.notes {
+  width: 100%;
+}
+
+textarea {
+  outline: none;
+  border: none;
+  resize: none;
+  padding: var(--space-dis);
+  background-color: var(--primary);
+  outline: var(--primary-v) solid 2px;
+  width: 100%;
+}
